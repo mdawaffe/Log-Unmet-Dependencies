@@ -34,6 +34,9 @@ class Log_Unmet_Dependencies {
 
 	public function remove_hooks() {
 		remove_action( 'shutdown', array( $this, 'output_warnings' ) );
+
+		remove_filter( 'print_scripts_array', array( $this, 'print_scripts_array' ) );
+		remove_filter( 'print_styles_array', array( $this, 'print_styles_array' ) );
 	}
 
 	public function print_scripts_array( $scripts ) {
